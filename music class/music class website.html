@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gandhara Music Class</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #2c3e50;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    header img {
+      height: 50px;
+      border-radius: 50%;
+    }
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #1abc9c;
+    }
+    .container {
+      padding: 20px;
+      display: none;
+      animation: fadeIn 0.7s;
+    }
+    .active {
+      display: block;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px;
+      border: 5px solid #1abc9c;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      background: #1abc9c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    form button:hover {
+      background: #16a085;
+    }
+    .courses ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .courses li {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #ecf0f1;
+      border-left: 5px solid #1abc9c;
+      border-radius: 6px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+<div class="header">
+  <img src="logo.png" alt="Gandhara Music Logo" class="logo">
+  <h1>Gandhara Music Class</h1>
+</div>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(to right, #1a1a40, #3b3b98);
+    color: white;
+    font-family: "Georgia", serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+</style>
+<nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('courses')">Courses</a>
+    <a href="#" onclick="showPage('admission')">Admission Enquiry</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </nav>
+
+
+  <!-- Home -->
+  <div class="container active" id="home">
+    <h2>Welcome to Gandhara Music Class</h2>
+    <p>At Gandhara Music Class, we believe music is not just a skill but a way of life. 
+       Our mission is to provide high-quality training in different forms of music while 
+       preserving the rich cultural heritage of India.</p>
+    <p>We train students in both traditional and modern styles of music, helping them 
+       build confidence and creativity through performances and structured learning.</p>
+  </div>
+  <!-- About -->
+<div class="container" id="about">
+  <h2>About</h2>
+
+  <!-- Profile Image Upload -->
+  <input type="file" id="uploadPhoto" accept="image/*">
+  <br><br>
+  <img id="profilePreview" src="" alt="Profile Photo" class="profile-img" style="display:none;">
+
+  <p><b>Pruthvi Hegde</b> is a dedicated Hindustani classical vocalist who has successfully completed 
+     both Junior and Senior levels of training. The musical journey began under the guidance of 
+     <b>Mrs. Kavyashree Hegde</b> and is currently being nurtured by <b>Shree Vinayaka Hegde Hirehadda</b>.</p>
+
+  <p>Performed at prestigious venues such as <b>Swarnavalli Mata</b>, 
+     <b>Shri Marikamba Temple</b>, and <b>Shri Siddhivinayaka Temple</b>. 
+     Completed <b>Prarambha</b>, <b>Praveshika Pratham</b>, and <b>Poorna Madhyama</b> 
+     exams conducted by <b>Akhil Bharatiya Gandharva Mahavidyalaya, Dharwad</b>.</p>
+
+  <p>Founded Gandhara Music Class in <b>Sirsi, Karnataka</b> to guide young learners and 
+     spread the tradition of Hindustani music.</p>
+</div>
+
+<script>
+  // Preview uploaded photo & hide file input
+  document.getElementById("uploadPhoto").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById("profilePreview");
+        preview.src = e.target.result;
+        preview.style.display = "block";
+
+        // Hide upload input after selecting photo
+        document.getElementById("uploadPhoto").style.display = "none";
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+
+<style>
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    border: 4px solid #444;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+</style>
+
+
+  <!-- Courses -->
+  <div class="container" id="courses">
+    <h2>Courses Offered</h2>
+    <div class="courses">
+      <ul>
+        <li>
+          <b>Hindustani Classical</b><br>
+          Learn the foundation of Indian classical music, ragas, and traditional compositions 
+          with step-by-step guidance.
+        </li>
+        <li>
+          <b>Light Music</b><br>
+          Training in bhajans, devotional songs, and semi-classical music to improve voice control and expression.
+        </li>
+        <li>
+          <b>Film Music</b><br>
+          Explore popular film songs, playback techniques, and modern singing styles to enhance versatility.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Admission -->
+  <div class="container" id="admission">
+    <h2>Admission Enquiry</h2>
+    <form>
+      <input type="text" placeholder="Student Name" required>
+      <input type="number" placeholder="Age" required>
+      <input type="text" placeholder="Interested Course" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="4"></textarea>
+
+      <!-- Fees -->
+      <p><b>Admission Fees: ₹500</b></p>
+      <button type="button" onclick="payNow()">Pay Now</button>
+    </form>
+  </div>
+
+  <!-- Contact -->
+  <div class="container" id="contact">
+    <h2>Contact</h2>
+    <p><b>Name:</b> Pruthvi Hegde</p>
+    <p><b>Mobile:</b> +91-8971821742</p>
+    <p><b>Email:</b> info@gandharamusic.com</p>
+    <p><b>Address:</b> Gandhara Music Academy, Sirsi, Karnataka, India</p>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.container');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    function payNow() {
+      alert("Redirecting to payment gateway for ₹500...");
+      // You can integrate Razorpay/PayPal API here
+    }
+  </script>
+
+</body>
+</html>
